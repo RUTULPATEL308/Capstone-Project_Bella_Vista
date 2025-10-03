@@ -1,0 +1,119 @@
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url('../res/font/Montserrat-Bold.ttf');
+}
+@font-face {
+    font-family: Montserrat-Medium;
+    src: url('../res/font/Montserrat-Medium.ttf');
+}
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url('../src/res/font/Montserrat-Regular.ttf');
+}
+@font-face {
+    font-family: open-sens-regular;
+    src: url('../res/font/open-sans/OpenSans-Regular.ttf');
+}
+@font-face {
+    font-family: open-sens-bold;
+    src: url('../res/font/open-sans/OpenSans-Bold.ttf');
+}
+@font-face {
+    font-family: open-sens-semi-bold;
+    src: url('../res/font/open-sans/OpenSans-SemiBold.ttf');
+}
+body {
+    background-color: #F9FAFB;
+    font-family: Montserrat-regular;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+.nav{
+    overflow: hidden;
+    height: 80px;
+    width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo{
+    height: 48px;
+    width: 48px;
+}
+.logo-name {
+    font-size: 24px;
+    font-family: Montserrat-Bold;
+    color: #212121;
+}
+ul{
+    font-family: open-sens-regular;
+    font-size: 16px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+ul li a{
+    display: block;
+    color: #212121;
+    text-align: center;
+    text-decoration: none;
+}
+ul li{
+    padding: 14px 20px;
+}
+ul li a:hover{
+    color: #FF7F50;
+    transition: 0.3s;
+}
+.green-btn{
+    font-family: open-sens-semi-bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    background-color: #388E3C;
+}
+.green-btn:hover{
+    background-color: #2E7D32;
+    display: flex;
+}
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+.cart-number{
+    position: absolute;
+    top: 0px;
+    right: 155px;
+    background-color: #F57C00;
+    color: #FFFFFF;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    font-family: open-sens-regular;
+    align-items: center;
+    font-size: 12px;
+}
+a{
+    text-decoration: none;
+    color: #212121;
+}
