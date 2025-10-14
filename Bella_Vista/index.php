@@ -1,214 +1,167 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/globals.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div class="home-page">
-      <div class="body">
-        <div class="section">
-          <div class="div">
-            <div class="div-2">
-              <p class="authentic-flavors">
-                <span class="text-wrapper">Authentic Flavors</span> <span class="span"> Crafted Fresh</span>
-              </p>
-              <p class="p">
-                Experience culinary excellence with our carefully curated menu of seasonal dishes made from the finest
-                local ingredients.
-              </p>
-              <div class="div-3">
-                <button class="button">
-                  <div class="i">
-                    <div class="svg"><div class="frame"></div></div>
-                  </div>
-                  <div class="text-wrapper-2">Order Now</div>
-                </button>
-                <button class="button-2">
-                  <div class="svg-wrapper">
-                    <div class="frame-wrapper"><div class="frame-2"></div></div>
-                  </div>
-                  <div class="text-wrapper-3">Reserve a Table</div>
-                </button>
-              </div>
-            </div>
-          </div>
-          <img class="img" src="img/img.jpg" />
-        </div>
-        <div class="div-wrapper">
-          <div class="div-4">
-            <div class="div-5">
-              <div class="text-wrapper-4">Featured Dishes</div>
-              <p class="text-wrapper-5">
-                Discover our most popular creations, each crafted with passion and served with excellence.
-              </p>
-            </div>
-            <div class="div-6">
-              <div class="div-7">
-                <img class="img-2" src="img/img-6.png" />
-                <div class="div-8">
-                  <div class="text-wrapper-6">Grilled Atlantic Salmon</div>
-                  <p class="text-wrapper-7">Fresh salmon fillet with seasonal vegetables and lemon herb butter</p>
-                  <div class="div-9">
-                    <div class="text-wrapper-8">$28</div>
-                    <button class="button-3"><div class="text-wrapper-9">Add to Cart</div></button>
-                  </div>
-                </div>
-              </div>
-              <div class="div-7">
-                <img class="img-2" src="img/image.png" />
-                <div class="div-8">
-                  <div class="text-wrapper-10">Prime Beef Tenderloin</div>
-                  <p class="text-wrapper-11">8oz tenderloin with truffle mashed potatoes and red wine reduction</p>
-                  <div class="div-10">
-                    <div class="text-wrapper-12">$42</div>
-                    <button class="button-3"><div class="text-wrapper-9">Add to Cart</div></button>
-                  </div>
-                </div>
-              </div>
-              <div class="div-11">
-                <img class="img-3" src="img/img-5.png" />
-                <div class="div-8">
-                  <div class="text-wrapper-13">Lobster Risotto</div>
-                  <p class="text-wrapper-14">Creamy arborio rice with fresh lobster and saffron</p>
-                  <div class="div-12">
-                    <div class="text-wrapper-15">$36</div>
-                    <button class="button-3"><div class="text-wrapper-9">Add to Cart</div></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section-2">
-          <div class="div-13">
-            <div class="div-14">
-              <div class="div-15">
-                <div class="text-wrapper-16">Our Story</div>
-                <p class="text-wrapper-17">
-                  Founded in 2015, Savory began as a dream to bring authentic, farm- to-table dining to our community.
-                  Our passionate team of chefs sources the finest local ingredients to create memorable culinary
-                  experiences.
-                </p>
-                <p class="text-wrapper-18">
-                  Every dish tells a story of tradition, innovation, and our commitment to excellence. We believe that
-                  great food brings people together and creates lasting memories.
-                </p>
-                <button class="button-4"><div class="text-wrapper-19">Learn More About Us</div></button>
-              </div>
-              <div class="img-wrapper"><img class="img-4" src="img/img-2.png" /></div>
-            </div>
-          </div>
-        </div>
-        <div class="section-3">
-          <div class="div-16">
-            <div class="div-5">
-              <div class="text-wrapper-20">Meet Our Team</div>
-              <p class="text-wrapper-21">
-                The passionate individuals behind every exceptional dish and memorable dining experience.
-              </p>
-            </div>
-            <div class="div-6">
-              <div class="div-17">
-                <img class="img-5" src="img/img.png" />
-                <div class="text-wrapper-22">Chef Marcus Rivera</div>
-                <div class="text-wrapper-23">Head Chef</div>
-                <p class="text-wrapper-24">
-                  15 years of culinary excellence with expertise in Mediterranean and contemporary cuisine.
-                </p>
-              </div>
-              <div class="div-17">
-                <img class="img-5" src="img/img-4.png" />
-                <div class="text-wrapper-25">Chef Isabella Chen</div>
-                <div class="text-wrapper-26">Sous Chef</div>
-                <p class="text-wrapper-27">
-                  Specialized in Asian fusion techniques with a passion for innovative flavor combinations.
-                </p>
-              </div>
-              <div class="div-18">
-                <img class="img-5" src="img/img-3.png" />
-                <div class="text-wrapper-28">David Thompson</div>
-                <div class="text-wrapper-29">Restaurant Manager</div>
-                <p class="text-wrapper-30">
-                  Dedicated to ensuring every guest has an exceptional dining experience from start to finish.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <header class="header">
-          <div class="div-19">
-            <div class="div-20">
-              <div class="div-21">
-                <img class="div-22" src="img/div.svg" />
-                <div class="text-wrapper-31">Bella Vista</div>
-              </div>
-              <div class="nav">
-                <div class="text-wrapper-32">Home</div>
-                <div class="text-wrapper-33">About</div>
-                <div class="text-wrapper-34">Menu</div>
-                <div class="text-wrapper-35">Reservations</div>
-                <div class="text-wrapper-36">Contact</div>
-              </div>
-              <div class="div-23">
-                <button class="button-5">
-                  <div class="i-2">
-                    <div class="svg-2"><div class="frame-3"></div></div>
-                  </div>
-                  <div class="span-2"><div class="text-wrapper-37">3</div></div>
-                </button>
-                <button class="button-6"><div class="text-wrapper-38">Reserve Table</div></button>
-              </div>
-            </div>
-          </div>
-        </header>
-        <footer class="footer">
-          <div class="div-24">
-            <div class="div-14">
-              <div class="div-25">
-                <div class="div-26">
-                  <div class="i-wrapper">
-                    <div class="i-3">
-                      <div class="svg-3"><div class="frame-4"></div></div>
-                    </div>
-                  </div>
-                  <div class="text-wrapper-39">Bella Vista</div>
-                </div>
-                <p class="text-wrapper-40">Authentic Italian cuisine served with passion and tradition since 1985.</p>
-              </div>
-              <div class="div-25">
-                <div class="text-wrapper-41">Quick Links</div>
-                <div class="ul">
-                  <div class="li"><div class="text-wrapper-42">Home</div></div>
-                  <div class="li"><div class="text-wrapper-42">About</div></div>
-                  <div class="li"><div class="text-wrapper-43">Menu</div></div>
-                  <div class="li"><div class="text-wrapper-44">Reservations</div></div>
-                </div>
-              </div>
-              <div class="div-25">
-                <div class="text-wrapper-45">Contact Info</div>
-                <div class="div-27">
-                  <p class="text-wrapper-46">123 Culinary Street, Food City</p>
-                  <div class="frame-5"><div class="frame-6"></div></div>
-                  <div class="text-wrapper-47">(555) 123-4567</div>
-                  <div class="frame-7"><div class="frame-8"></div></div>
-                  <div class="text-wrapper-48">hello@bellavista.com</div>
-                  <div class="frame-9">
-                    <div class="vector-wrapper"><img class="vector" src="img/vector-2.svg" /></div>
-                  </div>
-                </div>
-              </div>
-              <div class="div-25">
-                <div class="text-wrapper-49">Follow Us</div>
-                <img class="div-28" src="img/div-2.svg" />
-              </div>
-            </div>
-            <div class="div-29"><p class="text-wrapper-50">© 2024 Bella Vista Restaurant. All rights reserved.</p></div>
-          </div>
-        </footer>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bella Vista Restaurant</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+  <!-- HEADER/NAVIGATION -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo-group">
+        <img src="images/div.svg" alt="Bella Vista Logo" class="logo-img">
+        <span class="logo-text">Bella Vista</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#reservations" class="nav-link">Reservations</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn"><i class="fa-solid fa-cart-shopping" style="color: #000000;"></i><span class="cart-badge">3</span></button>
+        <button class="reserve-btn">Reserve Table</button>
       </div>
     </div>
-  </body>
+  </header>
+  <!-- HERO SECTION -->
+  <section class="hero" style="background-image:url('images/Main-banner.jpg'); background-size: cover; background-position: center;">
+    <div class="container hero-content">
+      <h1>Ready to Experience Bella Vista?</h1>
+      <p>Join us for an unforgettable culinary journey that celebrates tradition, flavor, and hospitality.</p>
+      <div class="hero-actions">
+        <button class="primary-btn"><i class="fa-solid fa-cart-shopping" style="color: #f57c00;"></i> Reserve Your Table</button>
+        <button class="secondary-btn"><i class="fa-solid fa-utensils"></i> View Our Menu</button>
+      </div>
+    </div>
+  </section>
+  <!-- FEATURED DISHES -->
+  <section class="featured" id="menu">
+    <div class="container">
+      <div class="featured-header">
+        <h2>Featured Dishes</h2>
+        <p>Discover our most popular creations, each crafted with passion and served with excellence.</p>
+      </div>
+      <div class="dishes-grid">
+        <div class="dish-card">
+          <img src="images/img.png" alt="Grilled Atlantic Salmon">
+          <div class="dish-info">
+            <h3>Grilled Atlantic Salmon</h3>
+            <p>Fresh salmon fillet with seasonal vegetables and lemon herb butter</p>
+            <div class="dish-row">
+              <span class="price">$28</span>
+              <button class="add-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card">
+          <img src="images/img-1.png" alt="Prime Beef Tenderloin">
+          <div class="dish-info">
+            <h3>Prime Beef Tenderloin</h3>
+            <p>8oz tenderloin with truffle mashed potatoes and red wine reduction</p>
+            <div class="dish-row">
+              <span class="price">$42</span>
+              <button class="add-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card">
+          <img src="images/img-2.png" alt="Lobster Risotto">
+          <div class="dish-info">
+            <h3>Lobster Risotto</h3>
+            <p>Creamy arborio rice with fresh lobster and saffron</p>
+            <div class="dish-row">
+              <span class="price">$36</span>
+              <button class="add-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- OUR STORY -->
+  <section class="our-story" id="about">
+    <div class="container">
+      <div class="story-content">
+        <div class="story-text">
+          <h2>Our Story</h2>
+          <p>Founded in 2015, Savory began as a dream to bring authentic, farm-to-table dining to our community. Our passionate team of chefs sources the finest local ingredients to create memorable culinary experiences.</p>
+          <p>Every dish tells a story of tradition, innovation, and our commitment to excellence. We believe that great food brings people together and creates lasting memories.</p>
+          <button class="learn-more-btn">Learn More About Us</button>
+        </div>
+        <div class="story-img">
+          <img src="images/img-3.png" alt="Our Story">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- MEET OUR TEAM -->
+  <section class="our-team">
+    <div class="container">
+      <div class="team-header">
+        <h2>Meet Our Team</h2>
+        <p>The passionate individuals behind every exceptional dish and memorable dining experience.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="images/img-4.png" alt="Chef Marcus Rivera" class="team-photo">
+          <h3>Chef Marcus Rivera</h3>
+          <p class="team-role">Head Chef</p>
+          <p>15 years of culinary excellence with expertise in Mediterranean and contemporary cuisine.</p>
+        </div>
+        <div class="team-card">
+          <img src="images/img-5.png" alt="Chef Isabella Chen" class="team-photo">
+          <h3>Chef Isabella Chen</h3>
+          <p class="team-role">Sous Chef</p>
+          <p>Specialized in Asian fusion techniques with a passion for innovative flavor combinations.</p>
+        </div>
+        <div class="team-card">
+          <img src="images/img-6.png" alt="David Thompson" class="team-photo">
+          <h3>David Thompson</h3>
+          <p class="team-role">Restaurant Manager</p>
+          <p>Dedicated to ensuring every guest has an exceptional dining experience from start to finish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="images/div.svg" alt="Bella Vista" class="footer-logo">
+        <span>Bella Vista</span>
+        <p>Authentic Italian cuisine served with passion and tradition since 1985.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#reservations">Reservations</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <div><i class="fa-solid fa-location-dot" style="color: #9CA3AF;"></i> 123 Culinary Street, Food City</div>
+        <div><i class="fa-solid fa-phone" style="color: #9CA3AF;"></i> (555) 123-4567</div>
+        <div><i class="fa-solid fa-envelope" style="color: #9CA3AF;"></i> hello@bellavista.com</div>
+        <div class="footer-social">Follow Us: 
+          <a href="#"><i class="fa-brands fa-facebook-f" style="color: #FFFFFF; background-color:#374151; border-radius: 50%;"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter" style="color: #FFFFFF; background-color:#374151; border-radius: 50%;"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram" style="color: #FFFFFF; background-color:#374151; border-radius: 50%;"></i></a>
+          </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2025 Bella Vista Restaurant. All rights reserved.</span>
+    </div>
+  </footer>
+  <script src="scripts.js"></script>
+</body>
 </html>
