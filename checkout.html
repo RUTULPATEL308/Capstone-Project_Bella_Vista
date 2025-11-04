@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout – Bella Vista</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo-group">
+      <img src="images/logo.svg" class="logo-img" alt="Bella Vista Logo">
+      <span class="logo-text">Bella Vista</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="menu.html" class="nav-link">Menu</a>
+      <a href="reservations.html" class="nav-link">Reservations</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="cart-btn active"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">2</span></button>
+      <a href="reservations.html" class="reserve-btn">Reserve Table</a>
+    </div>
+  </div>
+</header>
+
+<section class="welcome" style="background-image:url('images/checkout-hero.jpg')">
+  <div class="container welcome-content">
+    <h2>Checkout</h2>
+    <p>Review your order and enter your details to confirm pickup or dine-in.</p>
+  </div>
+</section>
+
+<section class="featured">
+  <div class="container">
+
+    <div class="featured-header">
+      <h2>Your Order</h2>
+      <p>Please review your selected dishes before completing the order.</p>
+    </div>
+
+    <div class="reservation-grid">
+
+      <!-- ORDER SUMMARY -->
+      <div class="reservation-info">
+        <h3>Order Summary</h3>
+        <div id="checkout-cart" class="cart-panel">
+          <!-- Items populated dynamically -->
+        </div>
+
+        <div class="cart-total-row">
+          <span>Subtotal:</span>
+          <span id="subtotal">$0.00</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Tax (13%):</span>
+          <span id="tax">$0.00</span>
+        </div>
+        <div class="cart-total-row" style="font-size:18px;">
+          <span>Total:</span>
+          <span id="grand-total" style="font-weight:700;">$0.00</span>
+        </div>
+      </div>
+
+      <!-- CUSTOMER FORM -->
+      <form id="checkout-form" class="reservation-form">
+        <h3>Customer Details</h3>
+        <label for="name">Full Name</label>
+        <input id="name" name="name" required placeholder="Your name">
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" required placeholder="(555) 123-4567">
+
+        <label for="pickup">Pickup or Dine-In</label>
+        <select id="pickup" name="pickup" required>
+          <option value="pickup" selected>Pickup</option>
+          <option value="dine-in">Dine-In</option>
+        </select>
+
+        <label for="notes">Special Instructions (optional)</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="e.g., no cheese, extra sauce, allergy notes"></textarea>
+
+        <h3>Payment Method</h3>
+        <label style="display:flex;align-items:center;gap:8px;">
+          <input type="radio" name="payment" value="card" required> Credit / Debit Card
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;">
+          <input type="radio" name="payment" value="cash"> Pay at Pickup
+        </label>
+
+        <button type="submit" class="primary-btn" style="margin-top:10px;">Place Order</button>
+      </form>
+
+    </div>
+
+    <div id="order-confirm" class="reservation-confirm" hidden></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+      <img src="images/logo.svg" class="footer-logo" alt="">
+      <span>Bella Vista</span>
+      <p>Modern Italian Cooking</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservations.html">Reservations</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>123 Culinary Street</p>
+      <p>(555) 123-4567</p>
+      <p>hello@bellavista.com</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2025 Bella Vista Restaurant</span>
+  </div>
+</footer>
+
+<!-- Lightbox Container -->
+<div id="lightbox" style="display:none; align-items:center; justify-content:center; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000;">
+  <img id="lightbox-img" src="" alt="Preview" style="max-width:90%; max-height:90%; border-radius:8px;">
+</div>
+
+<script src="scripts.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const cartContainer = document.getElementById('checkout-cart');
+  const subtotalEl = document.getElementById('subtotal');
+  const taxEl = document.getElementById('tax');
+  const totalEl = document.getElementById('grand-total');
+
+  // Retrieve cart from localStorage
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function updateTotals() {
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.qty || 1)), 0);
+    const tax = subtotal * 0.13;
+    const total = subtotal + tax;
+    subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+    taxEl.textContent = `$${tax.toFixed(2)}`;
+    totalEl.textContent = `$${total.toFixed(2)}`;
+  }
+
+  function renderCart() {
+  if (cart.length === 0) {
+    cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    updateTotals();
+    return;
+  }
+
+  cartContainer.innerHTML = `
+    <div class="cart-header">
+      <div class="cart-col name">Item</div>
+      <div class="cart-col qty" style="text-align:center;">Qty</div>
+      <div class="cart-col price" style="text-align:right;">Price</div>
+    </div>
+    ${cart.map(item => `
+      <div class="cart-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+        <div class="cart-col name">${item.name}</div>
+        <div class="cart-col qty" style="text-align:center;">${item.qty}</div>
+        <div class="cart-col price" style="text-align:right;">$${(item.price * item.qty).toFixed(2)}</div>
+      </div>
+    `).join('')}
+  `;
+
+  updateTotals();
+}
+
+  renderCart();
+
+  // Checkout form submission
+  const checkoutForm = document.getElementById('checkout-form');
+  if (checkoutForm) {
+    checkoutForm.addEventListener('submit', e => {
+      e.preventDefault();
+      localStorage.removeItem('cart');
+      document.getElementById('order-confirm').innerHTML =
+        "<strong>Thank you!</strong> Your order has been placed successfully. We’ll confirm by email shortly.";
+      document.getElementById('order-confirm').hidden = false;
+      checkoutForm.reset();
+    });
+  }
+});
+</script>
+
+
+</body>
+</html>
