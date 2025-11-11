@@ -130,3 +130,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ====== CONTACT FORM ======
+document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.getElementById('contact-form');
+  const contactConfirm = document.getElementById('contact-confirm');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+
+      try {
+        const res = await fetch('process_contact.php', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+
+        if (data.status === 'success') {
+          contactConfirm.hidden = false;
+          contactConfirm.innerHTML = `<strong>Thank you!</strong> Your message has been sent successfully.`;
+          contactForm.reset();
+        } else {
+          alert('Error: ' + (data.message || 'Unknown issue.'));
+        }
+      } catch (err) {
+        console.error('Contact form error:', err);
+        alert('Server error — please check your PHP connection.');
+      }
+    });
+  }
+});
+
+// ====== MENU FILTER TABS ======
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tab');
+  const cards = document.querySelectorAll('.menu-card');
+
+  if (!tabs.length || !cards.length) return;
+
+  function show(category) {
+    cards.forEach(card => {
+      const match = category === 'all' || card.dataset.category === category;
+      card.style.display = match ? 'block' : 'none';
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      show(tab.dataset.category);
+    });
+  });
+
+  // Show all by default
+  show('all');
+});
