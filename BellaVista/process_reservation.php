@@ -1,31 +1,40 @@
 <?php
-require 'db_connect.php';
 header('Content-Type: application/json');
+include 'db_connect.php';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  http_response_code(405);
-  echo json_encode(["status" => "error", "message" => "Method not allowed"]);
+$name = $_POST['name'] ?? '';
+$email = $_POST['email'] ?? '';
+$phone = $_POST['phone'] ?? '';
+$guests = $_POST['guests'] ?? 1;
+$date = $_POST['date'] ?? '';
+$time = $_POST['time'] ?? '';
+$seating = $_POST['seating_preference'] ?? 'no preference';
+$occasion = $_POST['occasion'] ?? 'none';
+$notes = $_POST['notes'] ?? '';
+
+if (!$name || !$email || !$phone || !$date || !$time) {
+  echo json_encode(['status' => 'error', 'message' => 'Missing required fields']);
   exit;
 }
 
-$name   = trim($_POST['name'] ?? '');
-$email  = trim($_POST['email'] ?? '');
-$phone  = trim($_POST['phone'] ?? '');
-$date   = trim($_POST['date'] ?? '');
-$time   = trim($_POST['time'] ?? '');
-$guests = intval($_POST['guests'] ?? 0);
-$msg    = trim($_POST['message'] ?? '');
+$sql = "INSERT INTO reservations (name, email, phone, guests, date, time, seating_preference, occasion, notes)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-if ($name === '' || $email === '' || $phone === '' || $date === '' || $time === '' || $guests < 1) {
-  echo json_encode(["status" => "error", "message" => "Missing required fields"]);
-  exit;
-}
-
-$stmt = $conn->prepare("INSERT INTO reservations (name, email, phone, date, time, guests, message) VALUES (?,?,?,?,?,?,?)");
-$stmt->bind_param("sssssis", $name, $email, $phone, $date, $time, $guests, $msg);
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("sssisssss", $name, $email, $phone, $guests, $date, $time, $seating, $occasion, $notes);
 
 if ($stmt->execute()) {
-  echo json_encode(["status" => "success", "reservation_id" => $stmt->insert_id]);
+  echo json_encode([
+    'status' => 'success',
+    'reservation_id' => $stmt->insert_id
+  ]);
 } else {
-  echo json_encode(["status" => "error", "message" => $conn->error]);
+  echo json_encode([
+    'status' => 'error',
+    'message' => 'Database insert failed'  . $conn->error
+  ]);
 }
+
+$stmt->close();
+$conn->close();
+?>

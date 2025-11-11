@@ -44,21 +44,20 @@
           <option value="8">8</option>
         </select>
 
-        <label for="seating">Seating Preference</label>
-        <select id="seating" name="seating">
-          <option value="no-preference" selected>No preference</option>
-          <option value="dining-room">Dining room</option>
-          <option value="bar-high-top">Bar / high-top</option>
-          <option value="patio">Patio (weather permitting)</option>
+        <label for="seating_preference">Seating Preference</label>
+        <select id="seating_preference" name="seating_preference" required>
+          <option value="no preference" selected>No Preference</option>
+          <option value="dining">Dining</option>
+          <option value="bar">Bar</option>
+          <option value="patio">Patio</option>
         </select>
 
         <label for="occasion">Occasion</label>
-        <select id="occasion" name="occasion">
+        <select id="occasion" name="occasion" required>
           <option value="none" selected>None</option>
           <option value="birthday">Birthday</option>
           <option value="anniversary">Anniversary</option>
           <option value="business">Business</option>
-          <option value="other">Other</option>
         </select>
 
         <label for="notes">Notes (dietary requests, high chair, accessibility)</label>

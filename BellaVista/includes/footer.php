@@ -34,6 +34,7 @@
 
 <script src="assets/scripts.js"></script>
 <script src="assets/checkout-cart.js"></script>
+<script src="assets/reservations.js"></script>
 
 </body>
 </html>
