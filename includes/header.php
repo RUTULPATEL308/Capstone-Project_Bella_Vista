@@ -19,7 +19,7 @@ function active($file) { global $current; return $current === $file ? 'active' :
       <img src="images/logo.svg" class="logo-img" alt="Bella Vista">
       <span class="logo-text">Bella Vista</span>
     </a>
-
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="main-nav">
       <a href="index.php" class="nav-link <?=active('index.php')?>">Home</a>
       <a href="about.php" class="nav-link <?=active('about.php')?>">About</a>
@@ -27,7 +27,6 @@ function active($file) { global $current; return $current === $file ? 'active' :
       <a href="reservations.php" class="nav-link <?=active('reservations.php')?>">Reservations</a>
       <a href="contact.php" class="nav-link <?=active('contact.php')?>">Contact</a>
     </nav>
-
     <div class="header-actions">
       <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span></button>
       <a href="reservations.php" class="reserve-btn">Reserve Table</a>

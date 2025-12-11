@@ -27,6 +27,8 @@ include '../db_connect.php';
       <a href="analytics.php">Analytics</a>
       <a href="users.php">Users</a>
       <a href="reservations.php">Reservations</a>
+      <a href="menu.php">Menu</a>
+      <a href="contact_messages.php">Contact Messages</a>
       <a href="profile.php">Profile</a>
       <a class="bottom-link" href="settings.php">Settings</a>
       <a class="bottom-link" href="logout.php">Logout</a>

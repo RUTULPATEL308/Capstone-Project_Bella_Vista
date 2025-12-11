@@ -46,6 +46,7 @@ require_once '../db_connect.php';
       <a href="users.php">Users</a>
       <a href="reservations.php">Reservations</a>
       <a href="menu.php">Menu</a>
+      <a href="contact_messages.php">Contact Messages</a>
       <a href="profile.php">Profile</a>
       <a class="bottom-link" href="settings.php">Settings</a>
       <a class="bottom-link" href="logout.php">Logout</a>
@@ -170,6 +171,7 @@ require_once '../db_connect.php';
 
 <script>
 let isDragging = false;
+let isProcessingFile = false;
 
 $(document).ready(function(){
   // Initialize DataTable
@@ -179,34 +181,51 @@ $(document).ready(function(){
     order: [[0, 'desc']]
   });
   
-  // Upload button click handler - use document ready to ensure it's attached
-  $(document).on('click', '#chooseImageBtn', function(e) {
+  // Upload button click handler - prevent infinite recursion
+  $(document).off('click', '#chooseImageBtn').on('click', '#chooseImageBtn', function(e) {
     e.preventDefault();
     e.stopPropagation();
-    $('#image_file').trigger('click');
-  });
-  
-  // Image upload area click handler
-  $(document).on('click', '#imageUploadArea', function(e) {
-    if (!isDragging && !$(e.target).is('img') && !$(e.target).is('button')) {
-      e.preventDefault();
-      e.stopPropagation();
-      $('#image_file').trigger('click');
+    e.stopImmediatePropagation();
+    const fileInput = document.getElementById('image_file');
+    if (fileInput) {
+      fileInput.click();
     }
   });
   
-  // Image file change handler
-  $(document).on('change', '#image_file', function(e) {
+  // Image upload area click handler - prevent conflicts
+  $(document).off('click', '#imageUploadArea').on('click', '#imageUploadArea', function(e) {
+    // Don't trigger if clicking on button, img, or input elements
+    if ($(e.target).is('button, img, input, #chooseImageBtn, #removeImageBtn')) {
+      return;
+    }
+    if (!isDragging) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      const fileInput = document.getElementById('image_file');
+      if (fileInput) {
+        fileInput.click();
+      }
+    }
+  });
+  
+  // Image file change handler - prevent multiple triggers
+  $(document).off('change', '#image_file').on('change', '#image_file', function(e) {
+    if (isProcessingFile) return;
+    isProcessingFile = true;
+    
     const file = e.target.files[0];
     if (file) {
       if (file.size > 5 * 1024 * 1024) {
         alert('Image size must be less than 5MB');
         $(this).val('');
+        isProcessingFile = false;
         return;
       }
       if (!file.type.match('image.*')) {
         alert('Please select an image file');
         $(this).val('');
+        isProcessingFile = false;
         return;
       }
       const reader = new FileReader();
@@ -215,8 +234,15 @@ $(document).ready(function(){
         $('#uploadText').hide();
         $('#imageUploadArea').addClass('has-image');
         $('#removeImageBtn').addClass('show');
+        isProcessingFile = false;
+      };
+      reader.onerror = function() {
+        alert('Error reading image file');
+        isProcessingFile = false;
       };
       reader.readAsDataURL(file);
+    } else {
+      isProcessingFile = false;
     }
   });
   
@@ -342,6 +368,7 @@ function openAddModal() {
 }
 
 function resetImagePreview() {
+  isProcessingFile = false;
   $('#imagePreview').removeClass('show').attr('src', '');
   $('#uploadText').show();
   $('#imageUploadArea').removeClass('has-image');

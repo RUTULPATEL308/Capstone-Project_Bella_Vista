@@ -134,11 +134,39 @@ document.addEventListener('DOMContentLoaded', () => {
 // ====== CONTACT FORM ======
 document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contact-form');
-  const contactConfirm = document.getElementById('contact-confirm');
-
   if (contactForm) {
+    // Insert error elements after each input
+    ['name','email','phone','topic','message','c-consent'].forEach(field => {
+      const input = contactForm.querySelector(`[name="${field}"]`) || document.getElementById(field);
+      if (input && !input.classList.contains('no-error')) {
+        let errorElem = document.createElement('div');
+        errorElem.className = 'form-error';
+        errorElem.id = field + '-error';
+        input.insertAdjacentElement('afterend', errorElem);
+      }
+    });
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      let valid = true;
+      // Reset errors
+      contactForm.querySelectorAll('.form-error').forEach(el => el.classList.remove('active'));
+
+      // Validate inputs
+      function invalidate(field,msg) {
+        let err = document.getElementById(field+'-error');
+        if (err) { err.textContent = msg; err.classList.add('active'); }
+        valid = false;
+      }
+      if (!contactForm.name.value.trim()) invalidate('name','Name is required.');
+      const emailValue = contactForm.email.value.trim();
+      if (!emailValue) invalidate('email','Email is required.');
+      else if (!/^\S+@\S+\.\S+$/.test(emailValue)) invalidate('email','Enter a valid email.');
+      if (contactForm.phone.value && !/^[- +()0-9]{8,}$/.test(contactForm.phone.value)) invalidate('phone','Phone looks invalid.');
+      if (!contactForm.topic.value) invalidate('topic','Please select a topic.');
+      if (!contactForm.message.value.trim()) invalidate('message','Message required.');
+      if (!contactForm['c-consent'].checked) invalidate('c-consent','Consent is required to submit.');
+      if (!valid) return;
+
       const formData = new FormData(contactForm);
 
       try {
@@ -449,4 +477,32 @@ $(document).ready(function() {
     $('.toggle-info').on('click', function() {
       $('.info-panel').slideToggle(300);
     });
+
+    // ====== NAVBAR TOGGLE ======
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    if(navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('active');
+        navToggle.classList.toggle('open', isOpen);
+        if(isOpen) {
+          document.body.classList.add('nav-open');
+          navToggle.setAttribute('aria-expanded', 'true');
+        } else {
+          document.body.classList.remove('nav-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      // Hide nav when a link is clicked (on mobile)
+      mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if(window.innerWidth <= 900) {
+            mainNav.classList.remove('active');
+            navToggle.classList.remove('open');
+            document.body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    }
 });
